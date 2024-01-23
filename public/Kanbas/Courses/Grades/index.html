@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <title> Grades index </title>
+    </head>
+    <body>
+                <!-- Buttons and dropdowns at the start -->
+                <select id="select-one-genre"> <option value="Yes"> Gradebook</option></select>
+                <button>Import</button>
+                <select id="select-one-genre"> <option value="Yes"> Export</option></select>
+                <button>Configure</button>
+                <br></br>
+
+                <!-- Search fields before the table  -->
+                <p>
+                    <strong>Student Names</strong>
+                    <br/>
+                    <input id="text-fields-username" placeholder="Search Students"/>
+                </p>
+
+                <p>
+                    <strong>Assignment Names</strong>
+                    <br/>
+                    <input id="text-fields-username" placeholder="Search Assignments"/>
+                </p>
+
+                <!-- Filter button -->
+                <button>Apply Filter</button>
+                <br></br>
+
+                <!-- Start of the table -->
+                <table border = "1">
+                    <thead>
+                        <tr>
+                            <th> Student Name</th>
+                            <th>Homework 1</th>
+                            <th>Homework 2</th>
+                            <th>Homework 3</th>
+                            <th>Quiz 1</th>
+                        </tr>
+                    </thead>
+                    <!-- Student 1 -->
+                    <tr>
+                        <td>Rohil</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                    </tr>
+
+                    <!-- Student 2 -->
+                    <tr>
+                        <td>Jose</td>
+                        <td><input id="text-fields-username" value="100"/></td>
+                        <td>100</td>
+                        <td>100</td>
+                        <td>100</td>
+                    </tr>
+
+                     <!-- Student 3 -->
+                     <tr>
+                        <td>Arnold</td>
+                        <td>100</td>
+                        <td><input id="text-fields-username" value="10"/></td>
+                        <td>90</td>
+                        <td>25</td>
+                    </tr>  
+                    
+                     <!-- Student 1 -->
+                     <tr>
+                        <td>Matthew</td>
+                        <td>56</td>
+                        <td>14</td>
+                        <td>78</td>
+                        <td><input id="text-fields-username" value="37"/></td>
+                    </tr>                   
+                </table>
+
+    </body>
+</html>
