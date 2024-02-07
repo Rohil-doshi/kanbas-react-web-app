@@ -1,6 +1,11 @@
 <html>
     <head>
         <title> Grades</title>
+        <link rel="stylesheet" href="/libs/bootstrap/bootstrap.min.css" />
+        <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.css" />
+        <link rel="stylesheet" href="/Kanbas/styles.css" />
+        <link rel="stylesheet" href="/Kanbas/Navigation/index.css" />
+        <link rel="stylesheet" href="/Kanbas/Courses/Navigation/index.css" />
     </head>
     <body>
         <table>
@@ -8,39 +13,40 @@
             <!-- Main nav bar -->
             <td valign="top">
         <!-- Unordered list, main navigation sidebar -->
-        <ul>
-            <li><a href="/Kanbas/Account/Profile/screen.html">
-               Account</a></li>
-            <li>
-             <a href="/Kanbas/Dashboard/screen.html">Dashboard</a>
+        <ul class="wd-kanbas-navigation">
+            <li><a href="http://northeastern.edu"><img src = "../../northeastern_logo.png"></a></li>
+            <li><a href="/Kanbas/Account/Profile/screen.html"><i class="fa fa-user"></i>Account</a></li>
+            <li class="wd-active">
+              <a href="/Kanbas/Dashboard/screen.html">
+                <i class="fa fa-tachometer"></i> Dashboard</a>
             </li>
-            <li>
-             <a href="/Kanbas/Courses/Home/screen.html">Courses</a>
-            </li>
-            <li>
-             <a href="/Kanbas/Calendar/index.html">Calendar</a></li>
-            <li><a href="/Kanbas/Inbox/index.html">Inbox</a></li>
-            <li><a href="/Kanbas/History/index.html">History</a></li>
-            <li><a href="/Kanbas/Studio/index.html">Studio</a></li>
-            <li><a href="/Kanbas/Commons/index.html">Commons</a></li>
-            <li><a href="/Kanbas/Help/index.html">Help</a></li>
-           </ul>     
+            <li><a href="/Kanbas/Courses/Home/screen.html"><i class="fa fa-book"></i>Courses</a> </li>
+            <li><a href="#"><i class="fa fa-calendar"></i> Calendar</a></li>
+            <li><a href="#"><i class="fa fa-inbox"></i>Inbox</a></li>
+            <li><a href="#"><i class="fa fa-history"></i>History</a></li>
+            <li><a href="#"><i class="fa fa-tv"></i>Studio</a></li>
+            <li><a href="#"><i class="fa fa-share-square"></i>Commons</a></li>
+            <li><a href="#"><i class="fa fa-question-circle"></i>Help</a></li>   
             </td>
 
             <!-- Secondary Courses Nav bar -->
             <td valign="top">
                         <!-- Course Navigation Sidebar -->
-                        <ul>
-                            <li><a href="#">Notifications</a></li>
-                            <li><a href="#">Profile</a></li>
-                            <li><a href="#">Files</a></li>
-                            <li><a href="#">Settings</a></li>
-                            <li><a href="#">ePortfolios</a></li>
-                            <li><a href="#">Shared Content</a></li>
-                            <li><a href="#">The Hub</a></li>
-                            <li><a href="#">Qwickly Course Tools</a></li>
-                            <li><a href="#">Global Announcements</a></li>
-                        </ul>
+                        <ul class="wd-navigation">
+                            <li>
+                              <a href="/Kanbas/Courses/Home/screen.html">Home</a></li>
+                            <li class="wd-active">
+                              <a href="#">Modules</a>
+                            </li>
+                            <li><a href="http://piazza.com">Piazza</a></li>
+                            <li><a href="#">Zoom</a></li>
+                            <li>
+                              <a href="/Kanbas/Courses/Assignments/screen.html">Assignments</a>
+                            </li>
+                            <li><a href="#">Quizzes</a></li>
+                            <li><a href="/Kanbas/Courses/Grades/screen.html">Grades</a></li>
+                            <li><a href="#">People</a></li>
+                          </ul>
             </td>
 
             <!-- Account -->
