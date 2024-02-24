@@ -1,0 +1,9 @@
+.width70Percent {
+    width: 70%;
+}
+
+.width30Percent {
+    width: 30%;
+    padding: 8px;
+    justify-content: center;
+}
