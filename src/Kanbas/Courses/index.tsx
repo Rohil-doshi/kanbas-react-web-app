@@ -7,9 +7,8 @@ import "./index.css"
 import Modules from "./Modules";
 import Home from "./Home";
 import Assignments from "./Assignments";
-const { courses } = Database;
 
-function Courses() { 
+function Courses({ courses }: { courses: any[]; }) { 
   const { courseId } = useParams();
   const course = courses.find((course) => course._id === courseId);
   return (
