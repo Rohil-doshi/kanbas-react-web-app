@@ -1,41 +1,13 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Database from "../Database";
-function Dashboard() {
-  const [courses, setCourses] = useState(Database.courses);
-
-  // The starting boilerplate for a new course 
-  const [course, setCourse] = useState({
-    _id: "0", name: "Course Name", number: "Course Number",
-    startDate: "2023-09-10", endDate: "2023-12-15",
-    image: "/images/reactjs.jpg"
-  });
-
-  // Adding a new course using the input from the forms
-  const addNewCourse = () => {
-    const newCourse = { ...course,
-                        _id: new Date().getTime().toString() };
-    setCourses([...courses, { ...course, ...newCourse }]);
-  };
-
-  // Delete an existing course
-  const deleteCourse = (courseId: string) => {
-    setCourses(courses.filter((course) => course._id !== courseId));
-  };
-
-  // Update an existing course
-  const updateCourse = () => {
-    setCourses(
-      courses.map((c) => {
-        if (c._id === course._id) {
-          return course;
-        } else {
-          return c;
-        }
-      })
-    );
-  };
-
+function Dashboard(
+  { courses, course, setCourse, addNewCourse,
+    deleteCourse, updateCourse }: {
+    courses: any[]; course: any; setCourse: (course: any) => void;
+    addNewCourse: () => void; deleteCourse: (course: any) => void;
+    updateCourse: () => void; })
+{
   return (
     <div className="p-4">
       {/* placing the button in a diff col to keep them on the same line */}
