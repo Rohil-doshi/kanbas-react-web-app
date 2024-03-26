@@ -5,12 +5,12 @@ function BooleanStateVariables() {
     <div>
       <h2>Boolean State Variables</h2>
       <p>{done ? "Done" : "Not done"}</p>
-      <label className="form-control">
+      <label className="form-control p-2 m-2">
         <input type="checkbox" checked={done}
                onChange={() => setDone(!done)} />
-        Done
+          Done
       </label>
-      {done && <div className="alert alert-success">
+      {done && <div className="alert alert-success mt-3">
                Yay! you are done</div>}
     </div>
   );
