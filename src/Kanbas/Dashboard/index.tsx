@@ -36,10 +36,6 @@ function Dashboard() {
     );
   };
 
-
-
-
-
   return (
     <div className="p-4">
       {/* placing the button in a diff col to keep them on the same line */}
