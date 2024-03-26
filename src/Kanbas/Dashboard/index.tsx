@@ -1,26 +1,118 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Database from "../Database";
-const { courses } = Database;
 function Dashboard() {
+  const [courses, setCourses] = useState(Database.courses);
+
+  // The starting boilerplate for a new course 
+  const [course, setCourse] = useState({
+    _id: "0", name: "Course Name", number: "Course Number",
+    startDate: "2023-09-10", endDate: "2023-12-15",
+    image: "/images/reactjs.jpg"
+  });
+
+  // Adding a new course using the input from the forms
+  const addNewCourse = () => {
+    const newCourse = { ...course,
+                        _id: new Date().getTime().toString() };
+    setCourses([...courses, { ...course, ...newCourse }]);
+  };
+
+  // Delete an existing course
+  const deleteCourse = (courseId: string) => {
+    setCourses(courses.filter((course) => course._id !== courseId));
+  };
+
+  // Update an existing course
+  const updateCourse = () => {
+    setCourses(
+      courses.map((c) => {
+        if (c._id === course._id) {
+          return course;
+        } else {
+          return c;
+        }
+      })
+    );
+  };
+
+
+
+
+
   return (
     <div className="p-4">
-      
-      <h1>Dashboard</h1>              <hr />
+      {/* placing the button in a diff col to keep them on the same line */}
+      <div className="container m-0">
+        <div className="row">
+          <div className="col ml-0">
+            <h1 className="m-0">Dashboard</h1>
+          </div>
+          {/* Course Name */}
+          <div className="col-auto">
+          <input value={course.name} className="form-control"
+             onChange={(e) => setCourse({ ...course, name: e.target.value }) } />
+          </div>
+
+          {/* Course Number */}
+          <div className="col-auto">
+          <input value={course.number} className="form-control"
+             onChange={(e) => setCourse({ ...course, number: e.target.value }) } />
+          </div>
+
+          {/* Course Start Date */}
+          <div className="col-auto">
+          <input value={course.startDate} className="form-control" type="date"
+             onChange={(e) => setCourse({ ...course, startDate: e.target.value }) }/>
+          </div>
+
+          {/* Course End date */}
+          <div className="col-auto">
+          <input value={course.endDate} className="form-control" type="date"
+             onChange={(e) => setCourse({ ...course, endDate: e.target.value }) } />
+          </div>
+
+          {/* Add New Course Button */}
+          <div className="col-auto">
+            <button className="btn btn-success" onClick={addNewCourse}>Add</button>
+          </div>
+
+          {/* Update the course */}
+          <div className="col-auto">
+          <button className="btn btn-warning" onClick={updateCourse} >Update </button>
+          </div>
+
+        </div>
+      </div>
+      <hr />
+
       <h2>Published Courses (12)</h2> <hr />
-      <div className="row">
-        <div className="row row-cols-1 row-cols-md-5 g-4">
+      <div className="row mt-0 mb-0">
+        <div className="row row-cols-1 row-cols-md-5 g-4 mt-0">
           {courses.map((course) => (
-            <div key={course._id} className="col" style={{ width: 300 }}>
+            <div key={course._id} className="col" style={{width: 400 }}>
               <div className="card">
-                <img src={`https://t3.ftcdn.net/jpg/01/34/31/72/360_F_134317274_PTXPn7EjliaYrJrZmfs0x5jFv8dmXsYn.jpg`} className="card-img-top"
-                     style={{ height: 150 }}/>
+                <img src={`https://t3.ftcdn.net/jpg/04/38/03/50/360_F_438035062_bxhey1N5fbRvjgPY0O7SqOnq3VzlrrSJ.jpg`} className="card-img-top"
+                     style={{ height: 200 }}/>
                 <div className="card-body">
                   <Link className="card-title" to={`/Kanbas/Courses/${course._id}/Home`}
-                    style={{ textDecoration: "none", color: "navy", fontWeight: "bold" }}>
-                    {course.name} </Link>
-                  <p className="card-text">{course.name}</p>
-                  <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-primary">
+                    style={{ textDecoration: "none", color: "red", fontWeight: "bold" }}>
+                    {course.name} 
+
+                    {/* Code added for editing a course */}
+                    <button className="btn btn-warning m-2" onClick={(event) => {event.preventDefault(); setCourse(course);}}>
+                      Edit
+                    </button>
+
+                    {/* Added code for deleting a course */}
+                    <button className="btn btn-danger m-2" onClick={(event) => {event.preventDefault(); deleteCourse(course._id);}}>
+                      Delete
+                    </button>
+                    
+                    
+                    </Link>
+                  <p className="card-text">{course.number}</p>
+                  <Link to={`/Kanbas/Courses/${course._id}/Home`} className="btn btn-danger">
                     Go </Link>
                 </div>
               </div>
