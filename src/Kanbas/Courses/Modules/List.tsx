@@ -29,6 +29,18 @@ function ModuleList() {
     setModuleList(newModuleList);
   };
 
+  const updateModule = () => {
+    const newModuleList = moduleList.map((m) => {
+      if (m._id === module.course) {
+        return module;
+      } else {
+        return m;
+      }
+    });
+    setModuleList(newModuleList);
+  };
+
+
 
 
   return (
@@ -36,10 +48,13 @@ function ModuleList() {
       {/* <!-- Add buttons here --> */}
       <ul className="list-group">
 
-        {/* New code for buttons  */}
+        {/* New code for adding buttons  */}
 
         <li className="list-group-item">
         <button className="btn btn-success" onClick={() => { addModule(module) }}>Add</button>
+        <button className="btn btn-warning" onClick={updateModule}>
+                Update
+        </button>
         <input className= "m-2" value={module.name} onChange={(e) => setModule({...module, name: e.target.value })}/>
         <textarea className="m-2" value={module.description} onChange={(e) => setModule({...module, description: e.target.value })}/>
       </li>
@@ -50,6 +65,14 @@ function ModuleList() {
         .filter((module) => module.course === courseId)
         .map((module, index) => (
           <li key={index} className="list-group-item m-1" onClick={() => setSelectedModule(module)}>
+
+            {/* Button for updating the modules */}
+
+            <button className="btn btn-danger"
+              onClick={(event) => { setModule(module); }}>
+              Edit
+            </button>
+
             {/* Button for deleting modules */}
               <button className="btn btn-danger m-2"
               onClick={() => deleteModule(module._id)}>
